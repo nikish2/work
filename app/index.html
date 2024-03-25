@@ -5,7 +5,6 @@
     <meta name="description" content="Online store for printing designs on clothes">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="css/style.min.css">
     <title>dzhumyga</title>
 
@@ -45,20 +44,20 @@
         }
 
         .hero {
-            background-image: url("./images/dist/picture-screens.jpeg");
+            background-image: url("./images/dist/ssdd2.jpeg");
 
             /* Для Chrome и Safari */
-            background-image: -webkit-image-set (url("./images/dist/picture-screens.webp")1x,
-                    url("./images/dist/picture-screens.jpeg") 1x);
+            background-image: -webkit-image-set (url("./images/dist/ssdd2.webp")1x,
+                    url("./images/dist/ssdd2.jpeg") 1x);
 
 
-            background-image: -ms-image-set (url("./images/dist/picture-screens.webp") 1x,
-                    url("./images/dist/picture-screens.jpeg") 1x);
+            background-image: -ms-image-set (url("./images/dist/ssdd2.webp") 1x,
+                    url("./images/dist/ssdd2.jpeg") 1x);
 
 
             /* Для Firefox */
-            background-image: image-set("./images/dist/picture-screens.webp" type("image/webp") 1x,
-                    "./images/dist/picture-screens.jpeg" type("image/jpeg") 1x);
+            background-image: image-set("./images/dist/ssdd2.webp" type("image/webp") 1x,
+                    "./images/dist/ssdd2.jpeg" type("image/jpeg") 1x);
         }
 
         .baground {
@@ -127,34 +126,46 @@
 <body>
     <header class="header">
         <div class="header_bg">
+
             <div class="header__container container">
-                <img class="header__decor-left" src="./images/dist/Element1.png" alt="#">
-                <img class="header__decor-right" src="./images/dist/Element1.png" alt="#">
+                <div class="header__pupap">
+                    <ul class="header__pupap-list">
+                        <li class="header__pupap-list-item"> <a href="#hero">О Нас</a></li>
+                        <li class="header__pupap-list-item"> <a href="#services">Услуги</a></li>
+                        <li class="header__pupap-list-item"> <a href="#clients">Наши Клиенты</a></li>
+                        <li class="header__pupap-list-item"> <a href="#footer">Контакты</a></li>
+                    </ul>
+                </div>
                 <div class="header__menu">
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__list-item nav__list-item_left">
-                                <a href="#">О Нас</a>
-                                <a href="#">Услуги</a>
+                                <a href="#hero">О Нас</a>
+                                <a href="#services">Услуги</a>
                             </li>
                         </ul>
                     </nav>
-
-                    <h1 class="header__title">
+                    <h1>
                         <picture class="header__logo">
                             <source srcset="./images/dist/Companylogo.webp" type="image/webp">
                             <img src="./images/dist/Companylogo.png" alt="TeeSpace">
                         </picture>
                     </h1>
-
+                    
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__list-item nav__list-item_right">
-                                <a href="#">Наши<br>Клиенты</a>
-                                <a href="#">Контакты</a>
+                                <a href="#clients">Наши<br>Клиенты</a>
+                                <a href="#footer">Контакты</a>
                             </li>
                         </ul>
                     </nav>
+
+                    <div class="header__burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
 
                 <div class="header__content-block">
@@ -163,27 +174,38 @@
                     </p>
 
                     <button class="header__btn">
-                        <a href="#">Организовать мероприятие</a>
+                        <a href="#footer">Организовать мероприятие</a>
                     </button>
                 </div>
             </div>
         </div>
+       
     </header>
 
     <main class="main">
-        <section class="hero">
+        <div class="wrap-section"> 
+          
+        </div>
+           
+        <section class="hero" id="hero">
             <div class="hero__container container">
-                <h2 class="hero__title">
-                    О нас
-                </h2>
+                <div class="hero__inner">
+                    <img class="hero__images" src="./images/dist/1093172.svg" alt="фон">
+                    <h2 class="hero__title">
+                        О нас
+                    </h2>
+                </div>
+
                 <div class="hero__wrapper">
                     <div class="hero__content">
                         <p>
                             С гордостью о нашем пути: более 20 лет в сердце самых ярких и значимых мероприятий. Наш
-                            опыт насчитывает более 1000 успешно организованных событий, включая масштабные региональные
+                            опыт насчитывает более 1000 успешно организованных событий, включая масштабные
+                            региональные
                             и престижные международные проекты. Мы представляем собой синергию креатива и
                             профессионализма: наши режиссеры воплощают в жизнь самые смелые идеи, сценаристы пишут
-                            истории, заставляющие сердца биться чаще, а артисты различных жанров придают каждому событию
+                            истории, заставляющие сердца биться чаще, а артисты различных жанров придают каждому
+                            событию
                             уникальное очарование.
                         </p>
                     </div>
@@ -191,26 +213,56 @@
                         <p>
                             Техническое обеспечение мероприятий — это наша гордость. Мы оснащены последними
                             инновациями в области звука, света, визуальных эффектов и сценических конструкций. Наша
-                            пиротехника превращает каждое торжество в незабываемое зрелище. Каждое событие для нас — это
-                            холст, на котором мы рисуем ваш идеальный момент. Доверьтесь нам, и мы превратим вашу мечту
+                            пиротехника превращает каждое торжество в незабываемое зрелище. Каждое событие для нас —
+                            это
+                            холст, на котором мы рисуем ваш идеальный момент. Доверьтесь нам, и мы превратим вашу
+                            мечту
                             в реальность, сопровождаемую аплодисментами и восхищенными взглядами ваших гостей.
                         </p>
                     </div>
                 </div>
+                <div class="hero__wrap-btn">
+                    <div class="hero__block-btn">
+                        <p class="hero__btn-text1">
+                            20 лет <br>
+                            опыта
+                        </p>
+                        <p class="hero__btn-text2">Организованность</p>
+                        <p class="hero__btn-text3">
+                            Креативный
+                            подход
+                        </p>
+                    </div>
 
-                <button class="hero__button">
-                    <a href="#">
-                        Организовать <br>
-                        мероприятие
-                    </a>
-                </button>
+                    <button class="hero__button">
+                        <img class="hero__images-btn" src="./images/dist/button.png" alt="кнопка">
+                        <a href="#footer">
+                            Организовать <br>
+                            мероприятие
+                        </a>
+                    </button>
+
+                    <div class="hero__block-btn">
+                        <p class="hero__btn-text4">
+                            Более 1000
+                            событий
+                        </p>
+                        <p class="hero__btn-text5">Ответственность</p>
+                        <p class="hero__btn-text6">
+                            Высокое качество исполнения
+                        </p>
+                    </div>
+                </div>
+
+
+
             </div>
         </section>
 
-        <section class="baground">
+        <section class="baground" id="baground">
         </section>
 
-        <section class="services">
+        <section class="services" id="services">
             <div class="services__bg-inner">
                 <div class="services__container container">
                     <h2 class="services__title">
@@ -301,7 +353,7 @@
                     </div>
 
                     <button class="services__button">
-                        <a href="#">Организовать мероприятие</a>
+                        <a href="#footer">Организовать мероприятие</a>
                     </button>
                 </div>
             </div>
@@ -310,118 +362,117 @@
         <section class="baground">
         </section>
 
-        <section class="clients">
-            <div class="clients__bg-inner">
-                <div class="clients__container container">
-                    <h2 class="clients__title">
-                        Наши клиенты
-                    </h2>
+        <section class="clients" id="clients">
 
-                    <div class="clients__wrapper">
-                        <div class="clients__card clients__card_gap clients__card_one">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/fifa.webp" type="image/webp">
-                                <img src="./images/dist/fifa.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация зрелищной программы в фан зоне на Чемпионате мира по футболу 2018г. в г.
-                                Ростов-на-Дону
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_gap-small clients__card_two">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/bridgeArst.webp" type="image/webp">
-                                <img src="./images/dist/bridgeArst.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация открытия, закрытия и зрелещных шоу программ на Международном фестивале
-                                мотивационного кино Bridge of Arts
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_gap clients__card_one">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/minsporta_logo 1.webp" type="image/webp">
-                                <img src="./images/dist/minsporta_logo 1.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация зрелещных мероприятий на Встрече Олимпийского огня Зимней Олимпиады 2014 в
-                                г. Ростов-на-Дону
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_fore">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/sochi.webp" type="image/webp">
-                                <img src="./images/dist/sochi.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация зрелещных мероприятий на Встрече Олимпийского огня Военно- спортивных Игр
-                                2017 в г. Ростов-на-Дону
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_gap-big clients__card_five">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/football_logo.webp" type="image/webp">
-                                <img src="./images/dist/football_logo.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация зрелещных мероприятий на Суперкубке России по Футболу ЦСКА - Зенит 2013 г.
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_gap-big clients__card_two">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/Union_of_Journalists_logo.webp" type="image/webp">
-                                <img src="./images/dist/Union_of_Journalists_logo.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация Церемонии награждения лучших журналистов и корреспондентов "Слава России"
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_gap clients__card_fore">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/Bravo_logo.webp" type="image/webp">
-                                <img src="./images/dist/Bravo_logo.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Юбилей театра мюзиклов "Браво" Аниты Цой
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_eight">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/art_studio_logo.webp" type="image/webp">
-                                <img src="./images/dist/art_studio_logo.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Юбилей арт студии и модельного агентства Виктории Шкариной
-                            </p>
-                        </div>
-                        <div class="clients__card clients__card_fore">
-                            <picture class="clients__img">
-                                <source srcset="./images/dist/Rock_Fest_logo.webp" type="image/webp">
-                                <img src="./images/dist/Rock_Fest_logo.png" alt="TeeSpace">
-                            </picture>
-                            <p class="clients__text">
-                                Организация фестиваля "Ростов Рок Фест" с участием звезд Российской Рок Музыки
-                            </p>
-                        </div>
+            <div class="clients__container container">
+                <h2 class="clients__title">
+                    Наши клиенты
+                </h2>
+
+                <div class="clients__wrapper">
+                    <div class="clients__card clients__card_gap clients__card_one">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/fifa.webp" type="image/webp">
+                            <img src="./images/dist/fifa.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация зрелищной программы в фан зоне на Чемпионате мира по футболу 2018г. в г.
+                            Ростов-на-Дону
+                        </p>
                     </div>
-
-                    <p class="clients__content">
-                        ... и еще более 1000 Частных, Корпоративных и Государственных мероприятий.
-                    </p>
-
-                    <button class="clients__button">
-                        <a href="#">Организовать мероприятие</a>
-                    </button>
+                    <div class="clients__card clients__card_gap-small clients__card_two">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/bridgeArst.webp" type="image/webp">
+                            <img src="./images/dist/bridgeArst.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация открытия, закрытия и зрелещных шоу программ на Международном фестивале
+                            мотивационного кино Bridge of Arts
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_gap clients__card_one">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/minsporta_logo 1.webp" type="image/webp">
+                            <img src="./images/dist/minsporta_logo 1.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация зрелещных мероприятий на Встрече Олимпийского огня Зимней Олимпиады 2014 в
+                            г. Ростов-на-Дону
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_fore">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/sochi.webp" type="image/webp">
+                            <img src="./images/dist/sochi.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация зрелещных мероприятий на Встрече Олимпийского огня Военно- спортивных Игр
+                            2017 в г. Ростов-на-Дону
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_gap-big clients__card_five">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/football_logo.webp" type="image/webp">
+                            <img src="./images/dist/football_logo.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация зрелещных мероприятий на Суперкубке России по Футболу ЦСКА - Зенит 2013 г.
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_gap-big clients__card_two">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/Union_of_Journalists_logo.webp" type="image/webp">
+                            <img src="./images/dist/Union_of_Journalists_logo.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация Церемонии награждения лучших журналистов и корреспондентов "Слава России"
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_gap clients__card_fore">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/Bravo_logo.webp" type="image/webp">
+                            <img src="./images/dist/Bravo_logo.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Юбилей театра мюзиклов "Браво" Аниты Цой
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_eight">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/art_studio_logo.webp" type="image/webp">
+                            <img src="./images/dist/art_studio_logo.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Юбилей арт студии и модельного агентства Виктории Шкариной
+                        </p>
+                    </div>
+                    <div class="clients__card clients__card_fore">
+                        <picture class="clients__img">
+                            <source srcset="./images/dist/Rock_Fest_logo.webp" type="image/webp">
+                            <img src="./images/dist/Rock_Fest_logo.png" alt="TeeSpace">
+                        </picture>
+                        <p class="clients__text">
+                            Организация фестиваля "Ростов Рок Фест" с участием звезд Российской Рок Музыки
+                        </p>
+                    </div>
                 </div>
+
+                <p class="clients__content">
+                    ... и еще более 1000 Частных, Корпоративных и Государственных мероприятий.
+                </p>
+
+                <button class="clients__button">
+                    <a href="#footer">Организовать мероприятие</a>
+                </button>
             </div>
 
         </section>
 
-        <section class="baground">
+        <section class="baground" id="baground">
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="footer__container container">
             <div class="footer__contacts">
                 <h2 class="footer__title">
@@ -436,27 +487,25 @@
                         <a href="mailto:info@gmail.com" class="footer__contact__email">E-mail:info@gmail.com</a>
                     </div>
 
-                    <div class="form">
-                        <form id="form" class="form" autocomplete="off">
 
-                            <input id="name" type="text" name="name" placeholder="Ваше имя" class="form__input">
+                    <form id="form" class="form" autocomplete="off">
 
-                            <input id="email" type="email" name="email" placeholder="E-mail" class="form__input">
+                        <input id="name" type="text" name="name" placeholder="Ваше имя" class="form__input"
+                            autocomplete="off">
 
-                            <input id="email" type="email" name="email" placeholder="+7 (999) 999-99-99" class="form__input">
-                               
-                            <button type="submit" class="footer__button">
-                               Оставить заявку
-                            </button>
-                        </form>
-                    </div>
+                        <input id="email" type="email" name="email" placeholder="E-mail" class="form__input">
+
+                        <input id="tel" type="tel" name="tel" placeholder="+7 (999) 999-99-99" class="form__input">
+
+                        <button type="submit" class="footer__button">
+                            Оставить заявку
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
+
     </footer>
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

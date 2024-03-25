@@ -10,7 +10,7 @@ html {
 }
 
 .body {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .container {
@@ -20,23 +20,56 @@ html {
 }
 
 .header {
+    position: relative;
+    z-index: 60;
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
+    max-height: 1080px;
 
+    &__pupap {
+        transform: translateY(-100%);
+        display: none;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        width: 100%;
+        height: 50vh;
+        background-color: #EF8662;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+
+    &__pupap-list {
+        margin-left: 50px;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__pupap-list-item {
+        a {
+            font-size: 30px;
+            color: white;
+        }
+    }
 
 
     &_bg {
         background-repeat: no-repeat;
         background-size: cover;
-        min-height: 100vh;
+        max-height: 1080px;
     }
 
     &__container {
         position: relative;
-
+        z-index: 60;
+        background: url(../images/dist/Element1.png)top -220px left -160px/400px 745px no-repeat,
+            url(../images/dist/Element-header.png)top -220px right -135px/400px 745px no-repeat;
     }
 
     &__decor-left {
@@ -93,7 +126,36 @@ html {
             z-index: 30;
             background-repeat: no-repeat;
         }
+    }
 
+    &__burger {
+        display: none;
+        opacity: 0;
+        width: 50px;
+        height: 30px;
+        position: relative;
+        top: 100px;
+        z-index: 100;
+
+        span {
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 0%;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.5s;
+
+            &:first-child {
+                top: 0;
+            }
+
+            &:last-child {
+                top: auto;
+                bottom: 0;
+            }
+        }
     }
 
     &__content-block {
@@ -107,7 +169,7 @@ html {
     &__text {
         display: flex;
         flex-wrap: wrap;
-        @include fluid-text (80, 40);
+        @include fluid-text (80, 45);
         font-weight: 400;
         line-height: 60px;
         color: rgb(255, 255, 255);
@@ -121,6 +183,12 @@ html {
         border-radius: 39px;
         background-color: transparent;
         margin-bottom: 223px;
+        transition: all 0.4s;
+
+        &:hover {
+            background-color: rgb(239, 134, 98, 0.2);
+
+        }
 
         a {
             display: inline-block;
@@ -129,6 +197,32 @@ html {
             font-size: 32px;
             font-weight: 400;
             line-height: 37px;
+        }
+    }
+}
+
+._active-pup {
+    opacity: 1;
+    display: block;
+    transform: translateY(0%);
+}
+
+._active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 1s;
+
+    &>span {
+        transform: scale(0);
+
+        &:first-child {
+            top: calc(50% - 1px);
+            transform: rotate(-45deg);
+        }
+
+        &:last-child {
+            top: calc(50% - 1px);
+            transform: rotate(45deg);
         }
     }
 }
@@ -163,69 +257,228 @@ html {
 
 // main=====
 
-.hero {
+
+
+.wrap-section {
+    overflow: hidden;
+    background: url("../images/dist/bacground.jpeg");
+    height: 1080px;
+    max-width: 1900px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 1080px);
+}
+
+.hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgb(0, 1, 22);
+    overflow: hidden;
 
     &__container {
+        height: 1080px;
+        background:
+            url("../images/dist/hero-left.png") bottom left -175px/316px 190px no-repeat,
+            url("../images/dist/hero-right.png") bottom right -175px/316px 190px no-repeat,
+            url("../images/dist/hero-top-left.png") center left/72px 319px no-repeat,
+            url("../images/dist/hero-top-right.png") center right/72px 319px no-repeat;
+    }
+
+    &__inner {
         position: relative;
-        height: 112vh;
+    }
+
+    &__images {
+        position: relative;
+        top: 74px;
+        left: 50%;
+        width: 800px;
+        height: 300px;
+        transform: translate(-50%, 0%);
     }
 
     &__title {
         position: absolute;
-        display: inline-block;
-        text-transform: uppercase;
-        top: 14%;
         left: 50%;
+        bottom: 95px;
         transform: translate(-50%, 0%);
-        z-index: 3;
+
         color: rgb(255, 255, 255);
         font-size: 40px;
         font-weight: 400;
         line-height: 40px;
+        letter-spacing: 0%;
     }
 
     &__wrapper {
-        position: relative;
-        top: 303px;
-        padding: 10px;
         display: flex;
-        gap: 638px;
         justify-content: center;
-
+        gap: 638px;
     }
 
     &__content {
-        max-width: 400px;
-
         p {
+            max-width: 410px;
             color: rgb(0, 0, 0);
             font-size: 20px;
             font-weight: 600;
             line-height: 25px;
+            letter-spacing: 0%;
             text-align: center;
         }
     }
 
+    &__wrap-btn {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 140px;
+
+    }
+
+    &__block-btn {
+        position: relative;
+
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            border: 2px solid rgb(192, 117, 55);
+        }
+    }
+
+    &__btn-text1 {
+        bottom: 82px;
+        left: 120px;
+        width: 130px;
+        height: 130px;
+        background-color: rgb(255, 248, 230);
+        border-radius: 20px;
+        clip-path: polygon(0% 15%, 10% 11%, 15% 0%, 85% 0%, 89% 11%, 100% 15%, 100% 85%, 88% 89%, 85% 100%, 15% 100%, 11% 89%, 0% 85%);
+
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+
+    }
+
+    &__btn-text2 {
+        top: -4px;
+        left: 174px;
+        width: 330px;
+        height: 40px;
+        background-color: rgb(255, 248, 230);
+        border-radius: 20px;
+
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    &__btn-text3 {
+        left: 403px;
+        top: 91px;
+        text-align: center;
+        width: 240px;
+        height: 100px;
+        background-color: rgb(255, 248, 230);
+        border-radius: 50px;
+
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    &__btn-text4 {
+        bottom: 82px;
+        right: 120px;
+        width: 130px;
+        height: 130px;
+        background-color: rgb(255, 248, 230);
+        border-radius: 20px;
+        clip-path: polygon(0% 15%, 10% 11%, 15% 0%, 85% 0%, 89% 11%, 100% 15%, 100% 85%, 88% 89%, 85% 100%, 15% 100%, 11% 89%, 0% 85%);
+
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    &__btn-text5 {
+        top: -4px;
+        right: 165px;
+        width: 330px;
+        height: 40px;
+        background-color: rgb(255, 248, 230);
+        border-radius: 20px;
+
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    &__btn-text6 {
+        right: 403px;
+        top: 91px;
+        text-align: center;
+        width: 240px;
+        height: 100px;
+        background-color: rgb(255, 248, 230);
+        border-radius: 50px;
+
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
     &__button {
-        position: absolute;
-        bottom: 80px;
-        left: 50%;
-        transform: translate(-50%, 0%);
+        position: relative;
+        margin-bottom: 30px;
         background-color: transparent;
         border: none;
 
 
         a {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+
             color: rgb(0, 0, 0);
             font-size: 28px;
             font-weight: 400;
             line-height: 32px;
+            letter-spacing: 0%;
             text-align: center;
         }
+    }
+
+    &__images-btn {
+        width: 285px;
+        height: 258px;
     }
 }
 
@@ -243,7 +496,6 @@ html {
 
 .services {
     background-color: rgb(0, 1, 22);
-    width: 100%;
 
     &__bg-inner {
         background:
@@ -263,10 +515,10 @@ html {
     }
 
     &__title {
-        padding-top: 148px;
-        padding-bottom: 68px;
+        margin-top: 148px;
+        margin-bottom: 68px;
         color: rgb(255, 255, 255);
-        font-size: 80px;
+        @include fluid-text(80, 60);
         font-weight: 400;
         line-height: 91px;
     }
@@ -314,9 +566,13 @@ html {
 
 .clients {
     background-color: rgb(0, 1, 22);
-    width: 100%;
 
-    &__bg-inner {
+    &__bg-inner {}
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
         top: 0;
         background:
@@ -326,17 +582,11 @@ html {
             url("../images/dist/bottom-left.png") bottom 150px left/314px 107px no-repeat;
     }
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     &__title {
-        padding-top: 148px;
-        padding-bottom: 68px;
+        margin-top: 148px;
+        margin-bottom: 68px;
         color: rgb(255, 255, 255);
-        font-size: 80px;
+        @include fluid-text(80, 60);
         font-weight: 400;
         line-height: 91px;
         text-align: center;
@@ -496,23 +746,29 @@ html {
 
 .footer {
     background-color: rgb(0, 1, 22);
-    width: 100%;
+    height: auto;
 
     &__container {
-        height: 100vh;
         display: flex;
         justify-content: center;
+
+        background:
+            url("../images/dist/bt-top-left.png") top 75px left 15px/273px 188px no-repeat,
+            url("../images/dist/bt-top-right.png") top 75px right 15px/273px 188px no-repeat,
+            url("../images/dist/footerlogo.png") bottom 100px right 5%/242px 242px no-repeat,
+            url("../images/dist/podium.png") bottom 150px left 50px/1033px 201px no-repeat;
     }
 
     &__contacts {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 100px;
     }
 
     &__title {
         color: rgb(255, 255, 255);
-        font-size: 80px;
+        @include fluid-text(80, 60);
         font-weight: 400;
         line-height: 91px;
         text-align: center;
@@ -521,6 +777,8 @@ html {
 
     &__form-wrapper {
         display: flex;
+        margin-bottom: 285px;
+        background: url("../images/dist/arrow.png") bottom 80px right 700px/298px 220px no-repeat;
     }
 
     &__content {
@@ -531,7 +789,7 @@ html {
     &__text {
         max-width: 65%;
         color: rgb(255, 255, 255);
-        font-size: 64px;
+        @include fluid-text(64, 40);
         font-weight: 400;
         line-height: 73px;
         text-align: left;
@@ -544,7 +802,7 @@ html {
         display: inline-block;
         color: rgb(255, 255, 255);
         font-family: 'Alice-Regular', sans-serif;
-        font-size: 48px;
+        @include fluid-text(48, 30);
         font-weight: 400;
         line-height: 55px;
         text-align: center;
@@ -565,12 +823,10 @@ html {
         line-height: 34px;
         text-align: center;
     }
-
 }
 
 .form {
     margin-right: 97px;
-
 
     &__input {
         max-width: 631px;
@@ -582,13 +838,15 @@ html {
         border-radius: 39px;
         margin-bottom: 27px;
         padding-left: 41px;
-        &::placeholder{
-            color:rgb(255, 255, 255);
+
+        &::placeholder {
+            color: rgb(255, 255, 255);
             font-size: 28px;
         }
     }
 
 }
+
 
 
 
@@ -621,6 +879,40 @@ html {
     .nav__list-item_left {
         gap: 40px;
     }
+
+    .footer__form-wrapper {
+        background: url("../images/dist/arrow.png") bottom 80px right 650px/298px 220px no-repeat;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    .hero__btn-text1 {
+        left: 5px;
+    }
+
+    .hero__btn-text2 {
+        left: 140px;
+    }
+
+    .hero__btn-text3 {
+        left: 155px;
+    }
+
+    .hero__btn-text4 {
+        right: 5px;
+    }
+
+    .hero__btn-text5 {
+        right: 140px;
+    }
+
+    .hero__btn-text6 {
+        right: 155px;
+    }
+
+    .footer__form-wrapper {
+        background: none;
+    }
 }
 
 @media screen and (max-width:1460px) {
@@ -637,9 +929,7 @@ html {
             gap: 100px;
         }
     }
-}
 
-@media screen and (max-width:1290px) {
     .hero__wrapper {
         gap: 5px;
         align-items: center;
@@ -647,18 +937,62 @@ html {
 
     .hero__content {
         padding: 10px;
-        background-color: rgb(255, 248, 230, 0.7);
+        background-color: rgb(255, 248, 230, 0.9);
         border-radius: 10px;
+        min-height: 395px;
+    }
+
+    .footer__container {
+        background:
+            url("../images/dist/bt-top-left.png") top 10px left 15px/273px 188px no-repeat,
+            url("../images/dist/bt-top-right.png") top 10px right 15px/273px 188px no-repeat,
+            url("../images/dist/footerlogo.png") bottom 100px right 5%/242px 242px no-repeat,
+            url("../images/dist/podium.png") bottom 150px left 50px/700px 201px no-repeat;
+
+    }
+
+}
+
+@media screen and (max-width:1290px) {
+
+    .footer__form-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .footer__content {
+        align-items: center;
+    }
+
+    .footer__title {
+        margin: 30px 0 70px 0;
+    }
+
+    .footer__text {
+        text-align: center;
+        margin-left: 0px;
+    }
+
+    .form {
+        text-align: center;
+        margin-right: 0px;
     }
 }
 
 @media screen and (max-width:1100px) {
+    .header__burger {
+        right: 100px;
+        display: block;
+        opacity: 1;
+    }
+
     .header__decor-left {
         right: -200px;
     }
 
     .header__menu {
-        justify-content: flex-start;
+        justify-content: space-between;
         gap: 40px;
     }
 
@@ -673,6 +1007,24 @@ html {
     .nav__list-item_left {
         position: relative;
         right: -75px;
+    }
+
+    .hero__block-btn {
+        p {
+            display: none;
+        }
+    }
+
+    .hero__wrap-btn {
+        margin-top: 100px;
+    }
+
+    .clients__bg-inner {
+        background: url(../images/dist/top-left.png) top left/314px 107px no-repeat, url(../images/dist/top-right.png) top right/314px 107px no-repeat, url(../images/dist/bottom-right.png) bottom right/314px 107px no-repeat, url(../images/dist/bottom-left.png) bottom left/314px 107px no-repeat;
+    }
+
+    .footer__container {
+        background: none;
     }
 }
 
@@ -698,20 +1050,46 @@ html {
             margin-bottom: 110px;
         }
     }
+
+    .footer__bg {
+        background: url("../images/dist/footerlogo.png") bottom 100px right 5%/242px 242px no-repeat;
+    }
+
 }
 
 @media screen and (max-width:767px) {
+    .wrap-section {
+        display: none;
+        opacity: 0;
+    }
+
+    .header__burger {
+        right: 20px;
+    }
+
+    .header__container {
+        background: none;
+      
+    }
+
     .hero {
+        background-size: cover;
+
+        &__container {
+            height: 120vh;
+        }
+
         &__wrapper {
             flex-direction: column;
         }
 
-        &__container {
-            height: 160vh;
+        &__button {
+            margin-top: 5px;
+
         }
 
-        &__button {
-            bottom: 130px;
+        &__wrap-btn {
+            margin-top: 30px;
         }
     }
 
@@ -720,6 +1098,11 @@ html {
     }
 
     .clients {
+        &__title {
+            margin-top: 90px;
+            margin-bottom: 68px;
+        }
+
         &__card {
             &_one {
                 &::after {
@@ -790,32 +1173,51 @@ html {
 
         &__button {
             width: auto;
+            margin: 80px 0 70px 0;
         }
 
+        &__bg-inner {
+            background: none;
+        }
     }
 }
 
 @media screen and (max-width:500px) {
+    .header__logo {
+        width: 40%;
+        top: 50px;
+    }
+
+    .hero__title {
+        font-size: 30px;
+        bottom: 80px;
+    }
+
     .clients__card {
-        &::after {
 
-            width: 0;
-            height: 0;
-
-        }
-
+        &::after,
         &::before {
-
             width: 0;
             height: 0;
-
         }
+    }
+
+    .clients__title {
+        margin-top: 20px
+    }
+
+    .footer__text {
+        max-width: 90%;
     }
 }
 
 @media screen and (max-width:400px) {
     .header__btn a {
         padding: 30px;
+    }
+
+    .hero__container {
+        height: 190vh;
     }
 
     .clients__text {

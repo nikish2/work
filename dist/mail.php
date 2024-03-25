@@ -9,12 +9,16 @@ $json = file_get_contents('php://input'); // Получение json строк�
 $data = json_decode($json, true); // Преобразование json
 
 // Данные
+$name = $data['name'];
 $email = $data['email'];
+$tel = $data['tel'];
 
 // Контент письма
-$title = 'Заявка с сайта testhostwork.ru'; // Название письма
-$body = '<p>Заявка на рассылку</p>'.
-        '<p>Почта: <strong>'.$email.'</strong></p>';
+$title = 'Заявка с сайта DZHUMYGA'; // Название письма
+$body = '<p>Запрос на индивидуальное предложение</p>'.
+         '<p>Имя: <strong>'.$name.'</strong></p>'.
+         '<p>Почта: <strong>'.$email.'</strong></p>'.
+         '<p>Телефон: <strong>'.$tel.'</strong></p>';
 
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -22,19 +26,19 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
 try {
   $mail->isSMTP();
   $mail->CharSet = 'UTF-8';
-  $mail->SMTPAuth   = true;
+  $mail->SMTPAuth = true;
 
   // Настройки почты отправителя
-  $mail->Host       = 'smtp.mail.ru'; // SMTP сервера вашей почты
-  $mail->Username   = 'rashkevich2001@mail.ru'; // Логин на почте
-  $mail->Password   = 'deBJmZZmqvH7wkz9sM5T'; // Пароль на почте
+  $mail->Host = 'smtp.gmail.com'; // SMTP сервера вашей почты
+  $mail->Username = 'rashkevich1978@gmail.com'; // Логин на почте
+  $mail->Password = 'hmhi eqtj ciqr yihn'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
-  $mail->Port       = 465;
+  $mail->Port = 465;
 
-  $mail->setFrom('rashkevich2001@mail.ru', 'Заявка с сайта'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('rashkevich1978@gmail.com', 'Заявка с сайта'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
-  $mail->addAddress('rashkevich2001@mail.ru');
+  $mail->addAddress('rashkevich1978@gmail.com');
 
   // Отправка сообщения
   $mail->isHTML(true);
@@ -48,5 +52,5 @@ try {
 
 } catch (Exception $e) {
   header('HTTP/1.1 400 Bad Request');
-  echo('Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}');
+  echo ('Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}');
 }

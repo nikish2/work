@@ -94,6 +94,7 @@ function building() {
         'app/images/dist/*.*',
         'app/fonts/*.*',
         'app/js/main.min.js',
+        'app/js/inputmask.min.js',
         'app/js/just-validate.min.js',
         'app/phpmailer/*.*',
         'app/**/*.php',
